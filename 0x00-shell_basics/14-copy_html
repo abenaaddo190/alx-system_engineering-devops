@@ -1,0 +1,12 @@
+#!/bin/bash
+for file in *.html
+do
+  # check if the file already exists in the parent directory and is newer than the existing file
+  if [[ -e "../$file" ]] && [[ "$file" -nt "../$file" ]]; then
+    echo "Skipping $file as it already exists in the parent directory and is newer"
+  else
+    # copy the file to the parent directory
+    cp "$file" "../$file"
+    echo "Copied $file to the parent directory"
+  fi
+done
