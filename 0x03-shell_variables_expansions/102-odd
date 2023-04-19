@@ -1,2 +1,2 @@
 #!/bin/bash
-while read line; doecho "$line"; read done
+while read line do echo $line read line done < "${1:-/dev/stdin}"
